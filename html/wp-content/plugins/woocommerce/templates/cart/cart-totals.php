@@ -101,20 +101,6 @@ defined( 'ABSPATH' ) || exit;
 
 		<?php do_action( 'woocommerce_cart_totals_after_order_total' ); ?>
 
-		<!-- display an alert box when you change the quantity of an item in the cart with the following text:
-
-"You just changed the quantity of ABC to 2", where ABC is the SKU name, and 2 is the current (new) quantity of the item. -->
-		<script>
-	jQuery(document).ready(function($) {
-		$('body').on('change', '.qty', function() {
-			var itemRow = $(this).closest('.cart_item');
-			var skuName = itemRow.find('.product-name').text().trim();
-			var quantity = $(this).val();
-			alert('You just changed the quantity of ' + skuName + ' to ' + quantity);
-		});
-	});
-</script>
-
 	</table>
 
 	<div class="wc-proceed-to-checkout">
