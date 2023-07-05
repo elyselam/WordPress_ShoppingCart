@@ -19,29 +19,32 @@ it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 2 of the License, or
 any later version.
 
-{Plugin Name} is distributed in the hope that it will be useful,
+woocommerce-quantity-alert is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with {Plugin Name}. If not, see {URI to Plugin License}.
+along with woocommerce-quantity-alert. If not, see {URI to Plugin License}.
 
 
 cart-totals
 */
-
-
 
 // Exit if accessed directly
 if (!defined('ABSPATH')) {
     exit;
 }
 
-// Plugin initialization and main logic
+// Plugin initialization 
 function alert() {
     
-    echo "<script>jQuery(document).ready(function($) { $('body').on('change', '.qty', function() { var itemRow = $(this).closest('.cart_item'); var skuName = itemRow.find('.product-name').text().trim(); var quantity = $(this).val(); alert('You just changed the quantity of ' + skuName + ' to ' + quantity); }); }); </script>";
+    echo "<script>jQuery(document).ready(function($) { 
+        $('body').on('change', '.qty', function() { 
+            var itemRow = $(this).closest('.cart_item'); 
+            var skuName = itemRow.find('.product-name').text().trim(); 
+            var quantity = $(this).val(); 
+            alert('You just changed the quantity of ' + skuName + ' to ' + quantity); }); }); </script>";
 }
 add_action('woocommerce_cart_totals_after_order_total', 'alert');
 
